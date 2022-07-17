@@ -35,12 +35,12 @@ const questions = [
     {
         type: "input",
         name: "contribution",
-        message: "What are the guidelines to contribute to this app?",
+        message: "What are the guidelines when contributing to this app?",
     },
     {
         type: "input",
         name: "username",
-        message: "What is your github username?",
+        message: "What is your GitHub username?",
     },
     {
         type: "input",
@@ -56,10 +56,8 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-
-    //fs to writeFile. and join path to current directory
-    // reference activity 13
-}
+    fs.writeFile(fileName, data, (err) => err ? console.error(err) : console.log('README.md has been successfully created!'))
+};
 
 function init() {
     inquirer.prompt(questions).then((answers) =>
