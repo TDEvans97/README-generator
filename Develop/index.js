@@ -61,12 +61,11 @@ function writeToFile(fileName, data) {
     // reference activity 13
 }
 
-// TODO: Create a function to initialize app
 function init() {
-    // use inquirer and prompt to show the questions, take in the responses, write the responses to the file (by calling writeToFile and ppassing in responses)
-    // activity 20
-    // inside of write to file - fileName, call generateMarkdown and pass in responses from prompt
-}
+    inquirer.prompt(questions).then((answers) =>
+        writeToFile('README.md',
+        mdTemplate(answers)),
+        (err) => err ? console.log(err) : console.log('Successfully wrote to file!'))
+};
 
-// Function call to initialize app
 init();
