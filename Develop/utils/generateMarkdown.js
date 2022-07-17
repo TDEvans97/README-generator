@@ -40,7 +40,7 @@ function renderLicenseSection(license) {
   } else return "";
 };
 
-// Create a Table Of Contents list item for License if a license is selected. 
+// Create a Table Of Contents list item if a license section is created.
 function renderLicenseTableOfContents(license) {
   if (license !== "N/A") {
     return `+ [License](#license)`
