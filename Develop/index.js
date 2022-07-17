@@ -1,17 +1,57 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application:
 const inquirer = require('inquirer');
 const fs = require('fs');
-// fs, inquirer, path, generateMarkdown.js - require
-// TODO: Create an array of questions for user input
+const path = require('path');
+const mdTemplate = require('./utils/generateMarkdown');
+
+// Questions for user input:
 const questions = [
     {
         type: "input",
-        name: "github",
-        message: "What is your GitHub username?"
+        name: "title",
+        message: "What is the title of your application?",
     },
     {
-
+        type: "input",
+        name: "description",
+        message: "Provide a short description explaining the what, why, and how of your project.",
     },
+    {
+        type: "input",
+        name: "installation",
+        message: "What are the steps required to install your project?",
+    },
+    {
+        type: "list",
+        name: "license",
+        message: "Which license are you using?",
+        choices: ['MIT', 'APACHE_2.0', 'CC',]
+    },
+    {
+        type: "input",
+        name: "usage",
+        message: "Provide examples and instructions for use.",
+    },
+    {
+        type: "input",
+        name: "contribution",
+        message: "What are the guidelines to contribute to this app?",
+    },
+    {
+        type: "input",
+        name: "username",
+        message: "What is your github username?",
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+    },
+    {
+        type: "input",
+        name: "testing",
+        message: "What testing has been done on this app?",
+    }
 ];
 
 // TODO: Create a function to write README file
