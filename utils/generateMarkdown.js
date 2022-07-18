@@ -48,35 +48,35 @@ function renderLicenseTableOfContents(license) {
 };
 
 // Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-  ${renderLicenseBadge(data.license)}
+function generateMarkdown({title, license, description, installation, usage, contribution, test, username, email}) {
+  return `# ${title}
+  ${renderLicenseBadge(license)}
   ## Table Of Contents
   + [Description](#description)
   + [Installation Instructions](#installation-instructions)
-  ${renderLicenseTableOfContents(data.license)}
+  ${renderLicenseTableOfContents(license)}
   + [Usage Information](#usage-information)
   + [Contribution Guidelines](#contribution-guidelines)
   + [Test Instructions](#test-instructions)
   + [Questions](#questions)
   ## Description
-  ${data.description}
+  ${description}
   ## Installation Instructions
-  ${data.installation}
-  ${renderLicenseSection(data.license)}
+  ${installation}
+  ${renderLicenseSection(license)}
   ## Usage Information
-  ${data.usage}
+  ${usage}
 
   ---
 
   ## Contribution Guidelines
-  ${data.contribution}
+  ${contribution}
   ## Test Instructions
-  ${data.test}
+  ${test}
   ## Questions
   If you have any questions, feel free to reach out to me.  
-  GitHub: https://github.com/${data.username}  
-  Email: ${data.email}
+  GitHub: https://github.com/${username}  
+  Email: ${email}
 `;
 };
 
