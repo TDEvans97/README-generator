@@ -39,6 +39,11 @@ const questions = [
     },
     {
         type: "input",
+        name: "test",
+        message: "What tests has been done on this app?",
+    },
+    {
+        type: "input",
         name: "username",
         message: "What is your GitHub username?",
     },
@@ -46,17 +51,12 @@ const questions = [
         type: "input",
         name: "email",
         message: "What is your email address?",
-    },
-    {
-        type: "input",
-        name: "testing",
-        message: "What testing has been done on this app?",
     }
 ];
 
-// TODO: Create a function to write README file
+// This function writes the README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => err ? console.error(err) : console.log('README.md has been successfully created!'))
+    fs.writeFile(fileName, data, (err) => err ? console.log(err) : console.log('README.md has been successfully created!'))
 };
 
 function init() {

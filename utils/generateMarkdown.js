@@ -33,10 +33,10 @@ function renderLicenseLink(license) {
 // Create a license section if the user any option except N/A.
 function renderLicenseSection(license) {
   if (license !== "N/A") {
-    return `## License ${renderLicenseBadge(license)} 
-    This project is licensed under the ${license} license. 
-    To understand what you can and cannot do with this project, please refer to the documentation at the ${renderLicenseLink(license)} website.
-    ---`
+    return `## License 
+  ${renderLicenseBadge(license)}  
+  This project is protected under the ${license} license.  
+  To understand what you can and cannot do with this project, please refer to the ${license} documentation at ${renderLicenseLink(license)}.`
   } else return "";
 };
 
@@ -47,13 +47,37 @@ function renderLicenseTableOfContents(license) {
   } else return "";
 };
 
-// TODO: Create a function to generate markdown for README
+// Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-  // ## Table of contents
-  // ## Description
+  ${renderLicenseBadge(data.license)}
+  ## Table Of Contents
+  + [Description](#description)
+  + [Installation Instructions](#installation-instructions)
+  ${renderLicenseTableOfContents(data.license)}
+  + [Usage Information](#usage-information)
+  + [Contribution Guidelines](#contribution-guidelines)
+  + [Test Instructions](#test-instructions)
+  + [Questions](#questions)
+  ## Description
+  ${data.description}
+  ## Installation Instructions
+  ${data.installation}
+  ${renderLicenseSection(data.license)}
+  ## Usage Information
+  ${data.usage}
 
+  ---
+
+  ## Contribution Guidelines
+  ${data.contribution}
+  ## Test Instructions
+  ${data.test}
+  ## Questions
+  If you have any questions, feel free to reach out to me.  
+  GitHub: https://github.com/${data.username}  
+  Email: ${data.email}
 `;
-}
+};
 
 module.exports = generateMarkdown;
